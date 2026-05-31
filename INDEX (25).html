@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Consentimiento — Get Covered NJ</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#1a2a3a;min-height:100vh}
+  .header{background:linear-gradient(135deg,#0a2342 0%,#1a4a7a 100%);color:#fff;padding:22px 20px 18px;text-align:center}
+  .header h1{font-size:1.2rem;font-weight:700;letter-spacing:.5px;margin-bottom:5px}
+  .header p{font-size:.78rem;opacity:.85;line-height:1.4}
+  .badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:.72rem;margin-top:8px}
+  .container{max-width:700px;margin:24px auto;padding:0 14px 40px}
+  .card{background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,.09);overflow:hidden;margin-bottom:18px}
+  .card-header{background:#0a2342;color:#fff;padding:13px 20px;font-size:.85rem;font-weight:600;letter-spacing:.3px;display:flex;align-items:center;gap:8px}
+  .card-header .step{background:#c9a84c;color:#0a2342;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+  .card-body{padding:18px 20px}
+  .legal-text{font-size:.78rem;line-height:1.7;color:#2a3a4a;background:#f7f9fc;border:1px solid #dce4ef;border-radius:8px;padding:16px}
+  .legal-text ol{padding-left:18px;margin:8px 0}
+  .legal-text ol li{margin-bottom:4px}
+  .field-inline{display:inline-block;border:none;border-bottom:1.5px solid #c9a84c;background:#fffde7;padding:2px 6px;min-width:120px;font-size:.78rem;color:#0a2342;outline:none;border-radius:3px 3px 0 0;font-family:inherit}
+  .field-inline:focus{background:#fff9c4;border-bottom-color:#0a2342}
+  .field-inline.error{border-bottom-color:#e53935;background:#fff3f3}
+  .form-row{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+  .form-group{flex:1;min-width:160px}
+  .form-group label{display:block;font-size:.72rem;color:#5a6a7a;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+  .form-group input, .form-group select{width:100%;padding:8px 10px;border:1.5px solid #dce4ef;border-radius:7px;font-size:.82rem;color:#1a2a3a;outline:none;font-family:inherit;background:#fff;transition:.2s}
+  .form-group input:focus, .form-group select:focus{border-color:#c9a84c;background:#fffde7}
+  .form-group input.error, .form-group select.error{border-color:#e53935;background:#fff3f3}
+  .form-group input[type="number"]{-moz-appearance:textfield}
+  .prefix{font-size:.85rem;color:#5a6a7a;align-self:flex-end;padding-bottom:9px;font-weight:600}
+  .checkbox-area{background:#f0f4f8;border-radius:8px;padding:13px 15px;margin-top:8px;display:flex;align-items:flex-start;gap:10px}
+  .checkbox-area input[type=checkbox]{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:#0a2342;cursor:pointer}
+  .checkbox-area label{font-size:.78rem;line-height:1.5;color:#2a3a4a;cursor:pointer}
+  .checkbox-area.error-box{border:2px solid #e53935;background:#fff3f3}
+  .error-msg{color:#e53935;font-size:.72rem;margin-top:6px;display:none}
+  canvas{border:2px solid #dce4ef;border-radius:8px;cursor:crosshair;touch-action:none;width:100%;max-width:100%}
+  canvas.error{border-color:#e53935}
+  .sig-label{font-size:.72rem;color:#5a6a7a;text-align:center;margin-top:5px}
+  .clear-btn{background:none;border:none;color:#e53935;font-size:.75rem;cursor:pointer;text-decoration:underline;padding:0;margin-top:4px}
+  .btn-download{width:100%;padding:14px;background:linear-gradient(135deg,#0a2342,#1a4a7a);color:#fff;border:none;border-radius:9px;font-size:.95rem;font-weight:700;cursor:pointer;letter-spacing:.5px;margin-top:4px;transition:.2s}
+  .btn-download:hover{background:linear-gradient(135deg,#0d2d56,#205a94);transform:translateY(-1px)}
+  .success-box{display:none;background:#e8f5e9;border:1.5px solid #4caf50;border-radius:10px;padding:16px 18px;margin-top:14px;text-align:center}
+  .success-box.show{display:block}
+  .success-box h3{color:#2e7d32;font-size:.95rem;margin-bottom:4px}
+  .success-box p{font-size:.78rem;color:#388e3c}
+  @media(max-width:480px){.form-row{flex-direction:column}.header h1{font-size:1rem}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🛡️ Consentimiento del Consumidor — Seguro Médico Get Covered NJ</h1>
+  <p>Agente: Yasiret Yerena Velazquez · NPN: 21322160 · Elite Group Insurance Broker LLC · NPN: 20779831</p>
+  <div class="badge">Complete los campos en amarillo dentro del texto, marque la casilla y firme abajo. Luego descargue su PDF.</div>
+</div>
+
+<div class="container">
+
+  <!-- PASO 1: TEXTO DEL CONSENTIMIENTO -->
+  <div class="card">
+    <div class="card-header"><span class="step">1</span> Texto del Consentimiento</div>
+    <div class="card-body">
+      <div id="error-top" style="color:#e53935;font-size:.78rem;margin-bottom:10px;display:none">⚠️ Por favor complete todos los campos marcados en rojo antes de continuar.</div>
+      <div class="legal-text">
+        <p>Fecha: <input class="field-inline" id="f_fecha" type="date" style="min-width:140px"/></p><br/>
+        <p>Yo, Sr./Sra. <input class="field-inline" id="f_nombre" type="text" placeholder="Nombre completo" style="min-width:200px"/>,
+        fecha de nacimiento <input class="field-inline" id="f_dob" type="date" style="min-width:140px"/>,
+        teléfono <input class="field-inline" id="f_telefono" type="tel" placeholder="(000) 000-0000" style="min-width:160px"/>,
+        teléfono <input class="field-inline" id="f_telefono" type="tel" placeholder="(000) 000-0000" style="min-width:160px"/> he dado mi consentimiento a la agente mencionada a continuación en la fecha de
+        <input class="field-inline" id="f_fecha2" type="date" style="min-width:140px"/> antes de la inscripción de mi solicitud de seguro médico a través del Mercado de Seguros Médicos.
+        He brindado información necesaria para ser elegible al crédito fiscal que otorga el mercado de seguros médicos y así obtener beneficios de una prima reducida.
+        Certifico que he recibido y entendido la asesoría brindada por:</p><br/>
+        <p><strong>Agente:</strong> Yasiret Yerena Velazquez &nbsp;<strong>NPN:</strong> 21322160<br/>
+        con la <strong>Agencia Elite Group Insurance Broker LLC</strong> NPN: 20779831</p><br/>
+        <p>Por este medio doy mi permiso a la agente Yasiret Yerena Velazquez para actuar como agente de seguros de salud para mí y para toda mi familia, si corresponde. Al dar mi consentimiento a este acuerdo, autorizo a ver y utilizar la información confidencial proporcionada por mí por escrito, electrónicamente o por teléfono solo para los fines de uno o más de los siguientes:</p>
+        <ol>
+          <li>Búsqueda y/o creación de una aplicación en el Mercado de Seguros;</li>
+          <li>Completar una solicitud de elegibilidad e inscripción en un Plan de Salud Calificado del Mercado u otros programas gubernamentales de asequibilidad de seguros, como Medicaid y CHIP o créditos fiscales anticipados para ayudar a pagar las primas del Mercado;</li>
+          <li>Brindar mantenimiento continuo de la cuenta y asistencia para la inscripción, según sea necesario;</li>
+          <li>Responder a consultas del Mercado con respecto a mi solicitud del Mercado.</li>
+        </ol><br/>
+        <p>Entiendo que mi consentimiento permanece vigente hasta que lo revoque, y puedo revocar o modificar mi consentimiento en cualquier momento poniéndome en contacto con la agente autorizada para recibir un reconocimiento de que el consentimiento ha sido rescindido.</p><br/>
+        <p>Confirmo que he revisado la información de la solicitud de elegibilidad del Mercado y he confirmado su exactitud antes de que se envíe la solicitud. La agente me explicó las certificaciones al final de la solicitud de elegibilidad antes de que se enviara la solicitud y se me dio la oportunidad de hacer preguntas sobre ellas. Así mismo, entiendo que en caso de cambios en los datos proporcionados a continuación o cualquier otro, debo notificar a mi representante inmediatamente para actualizar mi solicitud.</p><br/>
+        <p>Entiendo que la agente no usará ni compartirá mi información personal identificable (PII) para ningún propósito distinto de aquellos a los que he dado mi consentimiento y que garantizará que mi PII se mantenga privada y segura al crearla, recopilarla, divulgarla, acceder a ella, mantenerla, almacenarla y usarla solo para los fines autorizados. Entiendo que no estoy obligado(a) a compartir información personal adicional ni información protegida de salud (PHI) con mi agente más allá de lo requerido en la solicitud del Mercado para determinar elegibilidad e inscripción.</p><br/>
+
+        <!-- CAMPOS DEL HOGAR -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>Estatus marital</label>
+            <select id="f_marital">
+              <option value="">— Seleccione —</option>
+              <option>Soltero(a)</option>
+              <option>Casado(a)</option>
+              <option>Divorciado(a)</option>
+              <option>Viudo(a)</option>
+              <option>Unión libre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Ingreso proyectado anual familiar</label>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="prefix">$</span>
+              <input id="f_ingreso" type="number" placeholder="0.00" style="flex:1"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Personas en declaración de impuestos 2026</label>
+            <input id="f_personas" type="number" placeholder="1" min="1"/>
+          </div>
+          <div class="form-group">
+            <label>Personas con cobertura médica</label>
+            <input id="f_cobertura" type="number" placeholder="1" min="1"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Compañía del plan elegido</label>
+            <input id="f_compania" type="text" placeholder="Ej. UnitedHealthcare, Ambetter..."/>
+          </div>
+          <div class="form-group">
+            <label>Monto mensual a pagar</label>
+            <div style="display:flex;align-items:center;gap:6px">
+              <span class="prefix">$</span>
+              <input id="f_monto" type="number" placeholder="0.00" min="0" style="flex:1"/>
+            </div>
+          </div>
+        </div><br/>
+
+        <p>Confirmo NO tengo otro seguro médico, así como también que no tengo oferta en mi trabajo de cobertura médica. <strong>Firmo este consentimiento bajo pena de perjurio</strong>, lo que significa que he proporcionado respuestas verdaderas a todas las preguntas a mi leal saber y entender. Sé que puedo estar sujeto a sanciones según la ley federal si intencionalmente proporciono información falsa.</p>
+      </div>
+
+      <div class="checkbox-area" id="check-area">
+        <input type="checkbox" id="f_acepta"/>
+        <label for="f_acepta">He leído y entiendo completamente el texto anterior. Autorizo a la agente <strong>Yasiret Yerena Velazquez</strong> de Elite Group Insurance Broker LLC / Get Covered NJ a gestionar mi inscripción en el Mercado de Seguros Médicos.</label>
+      </div>
+      <div class="error-msg" id="err-check">Debes marcar esta casilla para continuar.</div>
+    </div>
+  </div>
+
+  <!-- PASO 2: FIRMA DIGITAL -->
+  <div class="card">
+    <div class="card-header"><span class="step">2</span> Firma Digital</div>
+    <div class="card-body">
+      <p style="font-size:.78rem;color:#5a6a7a;margin-bottom:10px">Firme aquí con su dedo o mouse</p>
+      <canvas id="sig-canvas" width="640" height="160"></canvas>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px">
+        <div class="sig-label">Use su dedo (celular) o el mouse (computadora)</div>
+        <button class="clear-btn" onclick="clearSig()">✕ Borrar</button>
+      </div>
+      <div class="sig-label" style="margin-top:8px;border-top:1.5px solid #dce4ef;padding-top:6px">Firma del titular</div>
+      <div class="error-msg" id="err-sig">Por favor proporcione su firma.</div>
+
+      <button class="btn-download" onclick="generarPDF()">⬇ Descargar PDF firmado</button>
+      <div class="success-box" id="success-box">
+        <h3>✅ ¡Documento generado!</h3>
+        <p>Su consentimiento firmado fue descargado. Guárdelo y envíe una copia a su agente.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── FIRMA ──
+const canvas = document.getElementById('sig-canvas');
+const ctx = canvas.getContext('2d');
+let drawing = false, hasSig = false;
+
+function resizeCanvas(){
+  const ratio = window.devicePixelRatio || 1;
+  const w = canvas.offsetWidth;
+  const h = 160;
+  canvas.width = w * ratio;
+  canvas.height = h * ratio;
+  canvas.style.height = h + 'px';
+  ctx.scale(ratio, ratio);
+  ctx.strokeStyle = '#0a2342';
+  ctx.lineWidth = 2.2;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+function pos(e){
+  const r = canvas.getBoundingClientRect();
+  const src = e.touches ? e.touches[0] : e;
+  return {x: src.clientX - r.left, y: src.clientY - r.top};
+}
+canvas.addEventListener('mousedown', e=>{drawing=true; const p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y)});
+canvas.addEventListener('mousemove', e=>{if(!drawing)return; const p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); hasSig=true});
+canvas.addEventListener('mouseup', ()=>drawing=false);
+canvas.addEventListener('mouseleave', ()=>drawing=false);
+canvas.addEventListener('touchstart', e=>{e.preventDefault(); drawing=true; const p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y)},{passive:false});
+canvas.addEventListener('touchmove', e=>{e.preventDefault(); if(!drawing)return; const p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); hasSig=true},{passive:false});
+canvas.addEventListener('touchend', ()=>drawing=false);
+
+function clearSig(){ctx.clearRect(0,0,canvas.width,canvas.height); hasSig=false; canvas.classList.remove('error')}
+
+// ── VALIDACIÓN ──
+function validate(){
+  let ok = true;
+  const required = ['f_fecha','f_nombre','f_dob','f_telefono','f_fecha2','f_marital','f_ingreso','f_personas','f_cobertura','f_compania','f_monto'];
+  required.forEach(id=>{
+    const el = document.getElementById(id);
+    if(!el.value.trim()){el.classList.add('error'); ok=false}
+    else el.classList.remove('error');
+  });
+  const inline = ['f_fecha','f_nombre','f_dob','f_fecha2'];
+  inline.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el.value.trim()) el.classList.add('error');
+    else el.classList.remove('error');
+  });
+  const chk = document.getElementById('f_acepta');
+  const chkArea = document.getElementById('check-area');
+  const errChk = document.getElementById('err-check');
+  if(!chk.checked){chkArea.classList.add('error-box'); errChk.style.display='block'; ok=false}
+  else{chkArea.classList.remove('error-box'); errChk.style.display='none'}
+  const errSig = document.getElementById('err-sig');
+  if(!hasSig){canvas.classList.add('error'); errSig.style.display='block'; ok=false}
+  else{canvas.classList.remove('error'); errSig.style.display='none'}
+  const errTop = document.getElementById('error-top');
+  errTop.style.display = ok ? 'none' : 'block';
+  return ok;
+}
+
+// ── FORMATO FECHA ──
+function fmtDate(val){
+  if(!val) return '___________';
+  const [y,m,d] = val.split('-');
+  const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  return `${parseInt(d)} de ${meses[parseInt(m)-1]} de ${y}`;
+}
+
+// ── OBTENER IP ──
+async function getIP(){
+  try{
+    const r = await fetch('https://api.ipify.org?format=json');
+    const d = await r.json();
+    return d.ip || 'No disponible';
+  }catch{return 'No disponible'}
+}
+
+// ── GENERAR PDF ──
+async async async function generarPDF(){
+  if(!validate()) return;
+  const clientIP = await getIP();
+  const device = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) ? 'Dispositivo móvil' : 'Computadora de escritorio';
+  const ua = navigator.userAgent;
+  const browser = ua.includes('Chrome') && !ua.includes('Edg') ? 'Google Chrome'
+    : ua.includes('Safari') && !ua.includes('Chrome') ? 'Safari'
+    : ua.includes('Firefox') ? 'Mozilla Firefox'
+    : ua.includes('Edg') ? 'Microsoft Edge'
+    : 'Otro navegador';
+  const {jsPDF} = window.jspdf;
+  const doc = new jsPDF({unit:'mm',format:'letter'});
+  const ML=15, MR=15, PW=215.9-ML-MR;
+  let y=15;
+
+  // Header
+  doc.setFillColor(10,35,66);
+  doc.rect(0,0,215.9,28,'F');
+  doc.setTextColor(255,255,255);
+  doc.setFontSize(11); doc.setFont('helvetica','bold');
+  doc.text('CONSENTIMIENTO DEL CONSUMIDOR — SEGURO MÉDICO',215.9/2,10,{align:'center'});
+  doc.setFontSize(8); doc.setFont('helvetica','normal');
+  doc.text('Get Covered NJ · Elite Group Insurance Broker LLC · NPN: 20779831',215.9/2,16,{align:'center'});
+  doc.text('Agente: Yasiret Yerena Velazquez · NPN: 21322160',215.9/2,21,{align:'center'});
+  doc.setTextColor(201,168,76);
+  doc.text('Documento generado electrónicamente',215.9/2,26,{align:'center'});
+  y=36;
+
+  // Datos
+  const nombre = document.getElementById('f_nombre').value.trim();
+  const dob = fmtDate(document.getElementById('f_dob').value);
+  const fecha = fmtDate(document.getElementById('f_fecha').value);
+  const fecha2 = fmtDate(document.getElementById('f_fecha2').value);
+  const marital = document.getElementById('f_marital').value;
+  const ingreso = Number(document.getElementById('f_ingreso').value).toLocaleString('en-US',{minimumFractionDigits:2});
+  const personas = document.getElementById('f_personas').value;
+  const cobertura = document.getElementById('f_cobertura').value;
+  const compania = document.getElementById('f_compania').value.trim();
+  const monto = Number(document.getElementById('f_monto').value).toLocaleString('en-US',{minimumFractionDigits:2});
+  const ahora = new Date().toLocaleString('es-US',{timeZone:'America/New_York',dateStyle:'long',timeStyle:'short'});
+
+  // Texto legal
+  doc.setTextColor(30,50,70);
+  const body = `Fecha: ${fecha}\n\nYo, Sr./Sra. ${nombre}, fecha de nacimiento ${dob}, he dado mi consentimiento a la agente mencionada a continuación en la fecha de ${fecha2} antes de la inscripción de mi solicitud de seguro médico a través del Mercado de Seguros Médicos. He brindado información necesaria para ser elegible al crédito fiscal que otorga el mercado de seguros médicos y así obtener beneficios de una prima reducida. Certifico que he recibido y entendido la asesoría brindada por:\n\nAgente: Yasiret Yerena Velazquez  NPN: 21322160\nAgencia: Elite Group Insurance Broker LLC  NPN: 20779831\n\nPor este medio doy mi permiso a la agente Yasiret Yerena Velazquez para actuar como agente de seguros de salud para mí y para toda mi familia, si corresponde. Al dar mi consentimiento a este acuerdo, autorizo a ver y utilizar la información confidencial proporcionada por mí por escrito, electrónicamente o por teléfono solo para los fines de uno o más de los siguientes:\n\n1. Búsqueda y/o creación de una aplicación en el Mercado de Seguros;\n2. Completar una solicitud de elegibilidad e inscripción en un Plan de Salud Calificado del Mercado u otros programas gubernamentales de asequibilidad de seguros, como Medicaid y CHIP o créditos fiscales anticipados para ayudar a pagar las primas del Mercado;\n3. Brindar mantenimiento continuo de la cuenta y asistencia para la inscripción, según sea necesario;\n4. Responder a consultas del Mercado con respecto a mi solicitud del Mercado.\n\nEntiendo que mi consentimiento permanece vigente hasta que lo revoque, y puedo revocar o modificar mi consentimiento en cualquier momento poniéndome en contacto con la agente autorizada para recibir un reconocimiento de que el consentimiento ha sido rescindido.\n\nConfirmo que he revisado la información de la solicitud de elegibilidad del Mercado y he confirmado su exactitud antes de que se envíe la solicitud. La agente me explicó las certificaciones al final de la solicitud de elegibilidad antes de que se enviara la solicitud y se me dio la oportunidad de hacer preguntas sobre ellas.\n\nEntiendo que la agente no usará ni compartirá mi información personal identificable (PII) para ningún propósito distinto de aquellos a los que he dado mi consentimiento y que garantizará que mi PII se mantenga privada y segura. Entiendo que no estoy obligado(a) a compartir información personal adicional ni información protegida de salud (PHI) con mi agente más allá de lo requerido en la solicitud del Mercado.\n\nConfirmo NO tengo otro seguro médico, así como también que no tengo oferta en mi trabajo de cobertura médica. Firmo este consentimiento bajo pena de perjurio.`;
+
+  doc.setFontSize(8); doc.setFont('helvetica','normal');
+  const lines = doc.splitTextToSize(body, PW);
+  lines.forEach(line=>{
+    if(y > 245){doc.addPage(); y=15;}
+    doc.text(line, ML, y); y+=4.5;
+  });
+
+  // Tabla de datos del hogar
+  y+=4;
+  if(y > 230){doc.addPage(); y=15;}
+  doc.setFillColor(10,35,66);
+  doc.rect(ML,y,PW,7,'F');
+  doc.setTextColor(255,255,255);
+  doc.setFontSize(8); doc.setFont('helvetica','bold');
+  doc.text('DATOS DEL HOGAR Y PLAN', ML+3, y+4.8);
+  y+=9;
+
+  const datos = [
+    ['Estatus marital', marital],
+    ['Ingreso proyectado anual familiar', '$' + ingreso],
+    ['Personas en declaración de impuestos 2026', personas],
+    ['Personas con cobertura médica', cobertura],
+    ['Compañía del plan elegido', compania],
+    ['Monto mensual a pagar', '$' + monto],
+  ];
+
+  doc.setFontSize(8);
+  datos.forEach(([label, val], i)=>{
+    if(y > 250){doc.addPage(); y=15;}
+    doc.setFillColor(i%2===0 ? 247 : 255, i%2===0 ? 249 : 255, i%2===0 ? 252 : 255);
+    doc.rect(ML, y, PW, 7, 'F');
+    doc.setTextColor(90,106,122); doc.setFont('helvetica','bold');
+    doc.text(label+':', ML+3, y+4.8);
+    doc.setTextColor(10,35,66); doc.setFont('helvetica','normal');
+    doc.text(val, ML+100, y+4.8);
+    y+=7;
+  });
+
+  // Firma
+  y+=8;
+  if(y > 220){doc.addPage(); y=15;}
+  doc.setFillColor(10,35,66);
+  doc.rect(ML,y,PW,7,'F');
+  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold');
+  doc.text('FIRMA DIGITAL', ML+3, y+4.8);
+  y+=11;
+
+  const sigData = canvas.toDataURL('image/png');
+  doc.addImage(sigData, 'PNG', ML, y, 100, 28);
+  doc.setDrawColor(201,168,76);
+  doc.rect(ML, y, 100, 28);
+  y+=32;
+  doc.setTextColor(90,106,122); doc.setFont('helvetica','italic'); doc.setFontSize(7.5);
+  doc.text('Firma digital de: '+nombre+' | Tel: '+telefono, ML, y);
+
+  // Registro de auditoría
+  y+=10;
+  if(y > 230){doc.addPage(); y=15;}
+  doc.setFillColor(10,35,66);
+  doc.rect(ML,y,PW,7,'F');
+  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(8);
+  doc.text('REGISTRO DE AUDITORÍA', ML+3, y+4.8);
+  y+=9;
+
+  const telefono = document.getElementById('f_telefono').value.trim();
+  const auditData = [
+    ['Número de teléfono', telefono],
+    ['Dirección IP', clientIP],
+    ['Dispositivo', device],
+    ['Navegador', browser],
+    ['Fecha y hora de firma', ahora + ' (hora del Este)'],
+  ];
+
+  doc.setFontSize(8);
+  auditData.forEach(([label, val], i)=>{
+    if(y > 250){doc.addPage(); y=15;}
+    doc.setFillColor(i%2===0 ? 247 : 255, i%2===0 ? 249 : 255, i%2===0 ? 252 : 255);
+    doc.rect(ML, y, PW, 7, 'F');
+    doc.setTextColor(90,106,122); doc.setFont('helvetica','bold');
+    doc.text(label+':', ML+3, y+4.8);
+    doc.setTextColor(10,35,66); doc.setFont('helvetica','normal');
+    doc.text(val, ML+80, y+4.8);
+    y+=7;
+  });
+
+  // Footer
+  y+=10;
+  doc.setDrawColor(201,168,76);
+  doc.line(ML, y, ML+PW, y);
+  y+=5;
+  doc.setFont('helvetica','italic'); doc.setFontSize(7); doc.setTextColor(150,150,150);
+  doc.text('Documento generado electrónicamente · Elite Group Insurance Broker LLC · Get Covered NJ', 215.9/2, y, {align:'center'});
+
+  const safeName = nombre.replace(/[^a-zA-Z0-9]/g,'_');
+  doc.save(`Consentimiento_${safeName}_${new Date().toISOString().slice(0,10)}.pdf`);
+  document.getElementById('success-box').classList.add('show');
+  document.getElementById('success-box').scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body>
+</html>
